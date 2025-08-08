@@ -1,6 +1,5 @@
 package domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Employee extends Person {
+public final class Employee extends Person {
     private int managerId;
 
     public Employee (int id, String name, Double salary, int managerId) {
