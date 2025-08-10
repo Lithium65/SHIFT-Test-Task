@@ -2,10 +2,8 @@ package domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
 @NoArgsConstructor
 abstract class Person {
     protected int id;
