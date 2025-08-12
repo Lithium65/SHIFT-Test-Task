@@ -1,7 +1,8 @@
 package service;
 
-import repo.DataRepo;
+import repo.ProcessedDataRepo;
+import repo.RawDataRepo;
 
 public interface DepartmentBuildService {
-    void formDepartments (DataRepo dataRepo);
+    void formDepartments (RawDataRepo rawDataRepo, ProcessedDataRepo processedDataRepo);
 }
