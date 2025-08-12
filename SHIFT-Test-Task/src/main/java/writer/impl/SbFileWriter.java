@@ -1,6 +1,6 @@
 package writer.impl;
 
-import writer.WriterImpl;
+import writer.FileWriter;
 
-public final class SbFileWriter implements WriterImpl {
+public final class SbFileWriter implements FileWriter {
 }

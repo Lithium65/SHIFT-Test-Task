@@ -2,8 +2,8 @@ package reader.impl;
 
 import domain.Employee;
 import domain.Manager;
-import reader.ReaderImpl;
-import repo.DataRepoImpl;
+import reader.FileReader;
+import repo.RawDataRepo;
 import utils.PersonParser;
 import utils.SbFileSearch;
 
@@ -14,10 +14,10 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 
-public final class SbFileReader implements ReaderImpl {
+public final class SbFileReader implements FileReader {
 
     @Override
-    public void readDirectory (Path directory, DataRepoImpl staffRepo) throws IOException {
+    public void readDirectory (Path directory, RawDataRepo staffRepo) throws IOException {
         List<Path> foundFiles = SbFileSearch.findSbFiles(directory);
 
         for (Path file : foundFiles) {
