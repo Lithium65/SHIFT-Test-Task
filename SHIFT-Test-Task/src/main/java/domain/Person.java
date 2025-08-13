@@ -15,4 +15,9 @@ abstract class Person {
         this.name = name;
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+       return id + ", " + name + ", " + salary;
+    }
 }

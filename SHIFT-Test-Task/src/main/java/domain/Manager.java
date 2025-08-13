@@ -12,4 +12,9 @@ public final class Manager extends Person{
         super(id, name, salary);
         this.department = department;
     }
+
+    @Override
+    public String toString () {
+        return super.toString() + ", " + department;
+    }
 }
