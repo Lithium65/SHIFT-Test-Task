@@ -9,7 +9,7 @@ import picocli.CommandLine;
 import java.nio.file.Path;
 
 @Getter
-public class ApplicationArgs {
+public final class ApplicationArgs {
 
     @CommandLine.Option(names = {"-s", "--sort"},
             description = {"Employee sorting type: by name or salary"})
@@ -36,7 +36,7 @@ public class ApplicationArgs {
             throw new CommandLine.ParameterException(spec.commandLine(), "--sort must be specified to use --order");
         }
         if ("file".equalsIgnoreCase(statsOutputMethod.toString()) && outputPath == null) {
-            throw new CommandLine.ParameterException(spec.commandLine(), "--path is not specified when --output=file");
+            throw new CommandLine.ParameterException(spec.commandLine(), "--path is not specified when --output=file is present");
         }
     }
 }
