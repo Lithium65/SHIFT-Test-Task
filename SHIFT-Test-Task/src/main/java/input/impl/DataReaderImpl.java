@@ -1,20 +1,28 @@
 package input.impl;
 
+import exception.StaffIsNotInitialized;
 import input.DataReader;
-import utils.SbFileSearch;
+import utils.SbFilesSearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class DataReaderImpl implements DataReader {
 
+    private final Path directory;
+
+    public DataReaderImpl() throws IOException {
+        directory = Paths.get("").toAbsolutePath();
+    }
+
     @Override
-    public List<String> readDirectory (Path directory) throws IOException {
-        List<Path> foundFiles = SbFileSearch.findSbFiles(directory);
+    public List<String> readDirectory () throws IOException, StaffIsNotInitialized {
+        List<Path> foundFiles = SbFilesSearch.findSbFiles(directory);
         List<String> lines = new ArrayList<>();
 
         for (Path file : foundFiles) {
@@ -27,6 +35,9 @@ public final class DataReaderImpl implements DataReader {
                     lines.add(line);
                 }
             }
+        }
+        if (lines.isEmpty()) {
+            throw new StaffIsNotInitialized("Staff list has not been initialized");
         }
         return lines;
     }

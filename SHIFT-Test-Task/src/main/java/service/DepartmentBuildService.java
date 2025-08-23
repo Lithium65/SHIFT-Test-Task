@@ -1,8 +1,10 @@
 package service;
 
-import repo.ProcessedDataRepo;
-import repo.RawDataRepo;
+import domain.Department;
+import domain.Employee;
+import domain.Manager;
+import java.util.List;
 
 public interface DepartmentBuildService {
-    void formDepartments (RawDataRepo rawDataRepo, ProcessedDataRepo processedDataRepo);
+    void formDepartments (List<Manager> managerList, List<Employee> employeeList, List<String> errorLines, List<Department> departmentList);
 }

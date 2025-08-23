@@ -6,6 +6,7 @@ import domain.Employee;
 import dto.DepartmentStatsDto;
 import service.SortService;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -28,12 +29,12 @@ public class SortServiceImpl implements SortService {
             throw new IllegalArgumentException("Unknown sort order " + sortOrder);
         }
 
-        employeeList.stream().sorted(comparator);
+        employeeList.sort(comparator);
     }
 
     @Override
     public void sortStatistics (List<DepartmentStatsDto> departmentStats) {
         Comparator<DepartmentStatsDto> comparator = Comparator.comparing(DepartmentStatsDto::department);
-        departmentStats.stream().sorted(comparator);
+        departmentStats.sort(comparator);
     }
 }

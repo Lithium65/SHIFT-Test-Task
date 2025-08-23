@@ -1,8 +1,11 @@
 package service;
 
-import repo.ProcessedDataRepo;
-import repo.RawDataRepo;
+import domain.Department;
+import domain.Manager;
+import dto.DepartmentStatsDto;
+
+import java.util.List;
 
 public interface StatisticsService {
-    void collectStats (RawDataRepo rawDataRepo, ProcessedDataRepo processedDataRepo);
+    void collectStats (List<Manager> managerList, List<Department> departmentList, List<DepartmentStatsDto> departmentsStats);
 }

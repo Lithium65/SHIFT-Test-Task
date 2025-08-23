@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public final class SbFileSearch {
+public final class SbFilesSearch {
     public static List<Path> findSbFiles (Path directory) throws IOException {
         try (Stream<Path> files = Files.list(directory)) {
             return files

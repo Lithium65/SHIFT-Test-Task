@@ -18,13 +18,13 @@ public final class ApplicationArgs {
     @CommandLine.Option(names = "--order", description = "Sort order, desc/asc")
     private SortOrder sortOrder;
 
-    @CommandLine.Option(names = "--stat", description = "Enables generation of departmental statistics")
+    @CommandLine.Option(names = "--stat", description = "Enables generation of departmental statistics", defaultValue = "false")
     private Boolean isStatsNeeded;
 
     @CommandLine.Option(names = {"-o", "--output"}, description = "Method for statistics export", defaultValue = "console")
     private StatsOutputMethod statsOutputMethod;
 
-    @CommandLine.Option(names = "path", description = "Save path of statistics file")
+    @CommandLine.Option(names = "--path", description = "Save path of statistics file")
     private Path outputPath;
 
     @CommandLine.Spec

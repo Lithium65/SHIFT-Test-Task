@@ -1,13 +1,11 @@
 package repo;
 
-import domain.Employee;
+import domain.Department;
 import dto.DepartmentStatsDto;
 
 import java.util.List;
-import java.util.Map;
 
 public interface ProcessedDataRepo {
-    void addDepartmentStats (DepartmentStatsDto departmentStatsDto);
-    Map<Integer, List<Employee>> getDepartmentsMap();
+    List<Department> getDepartmentsList();
     List<DepartmentStatsDto> getCollectedStats();
 }

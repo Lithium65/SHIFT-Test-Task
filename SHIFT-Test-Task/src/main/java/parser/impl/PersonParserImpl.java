@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public final class PersonParserImpl implements PersonParser {
 
-    public void parsePerson(List<String> lines, RawDataRepo rawDataRepo) {
+    public void parsePersons(List<String> lines, RawDataRepo rawDataRepo) {
         for (String line : lines) {
             if (line.startsWith("Manager")) {
                 Optional<Manager> manager = PersonParserImpl.parseManager(line);
@@ -25,6 +25,7 @@ public final class PersonParserImpl implements PersonParser {
             } else rawDataRepo.addInvalidLine(line);
         }
     }
+
     private static Optional<Manager> parseManager(String line) {
         String[] parts = line.split(",");
         if (parts.length != 5) return Optional.empty();
