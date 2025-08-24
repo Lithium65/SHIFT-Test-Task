@@ -5,23 +5,32 @@ import domain.Manager;
 import parser.PersonParser;
 import repo.RawDataRepo;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public final class PersonParserImpl implements PersonParser {
 
     public void parsePersons(List<String> lines, RawDataRepo rawDataRepo) {
+        Set<Integer> employeeIds = new HashSet<>();
+        Set<String> departmentsNames = new HashSet<>();
         for (String line : lines) {
+
             if (line.startsWith("Manager")) {
                 Optional<Manager> manager = PersonParserImpl.parseManager(line);
-                if (manager.isPresent()) {
+                if (manager.isPresent() && !departmentsNames.contains(manager.get().getDepartment())) {
                     rawDataRepo.addManager(manager.get());
+                    departmentsNames.add(manager.get().getDepartment());
                 } else rawDataRepo.addInvalidLine(line);
+
             } else if (line.startsWith("Employee")) {
                 Optional<Employee> employee = PersonParserImpl.parseEmployee(line);
-                if (employee.isPresent()) {
+                if (employee.isPresent() && !employeeIds.contains(employee.get().getId())) {
                     rawDataRepo.addEmployee(employee.get());
+                    employeeIds.add(employee.get().getId());
                 } else rawDataRepo.addInvalidLine(line);
+
             } else rawDataRepo.addInvalidLine(line);
         }
     }

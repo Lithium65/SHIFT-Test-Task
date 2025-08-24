@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 abstract class Person {
-    protected int id;
-    protected String name;
-    protected Double salary;
+    private int id;
+    private String name;
+    private Double salary;
 
     protected Person (int id, String name, Double salary) {
         this.id = id;
