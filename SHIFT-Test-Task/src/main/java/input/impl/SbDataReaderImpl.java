@@ -12,11 +12,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DataReaderImpl implements DataReader {
+public final class SbDataReaderImpl implements DataReader {
 
     private final Path directory;
 
-    public DataReaderImpl() throws IOException {
+    public SbDataReaderImpl() throws IOException {
         directory = Paths.get("").toAbsolutePath();
     }
 

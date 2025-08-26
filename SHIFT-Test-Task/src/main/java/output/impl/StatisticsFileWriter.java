@@ -12,12 +12,12 @@ public class StatisticsFileWriter implements DataWriter<List<DepartmentStatsDto>
 
     private final Path outputDir;
 
-    public StatisticsFileWriter(Path outputDir) {
+    public StatisticsFileWriter (Path outputDir) {
         this.outputDir = outputDir;
     }
 
     @Override
-    public void write(List<DepartmentStatsDto> departmentsStatsList) {
+    public void write (List<DepartmentStatsDto> departmentsStatsList) {
         try {
             Path parent = outputDir.getParent();
             if (parent != null) {

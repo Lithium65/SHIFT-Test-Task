@@ -1,6 +1,7 @@
 package service.impl;
 
 import domain.Department;
+import repo.ProcessedDataRepo;
 import service.DepartmentBuildService;
 import domain.Employee;
 import domain.Manager;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 public class DepartmentBuildServiceImpl implements DepartmentBuildService {
 
     @Override
-    public void formDepartments (List<Manager> managerList, List<Employee> employeeList, List<String> errorLines, List<Department> departmentList) {
+    public void formDepartments (List<Manager> managerList, List<Employee> employeeList, List<String> errorLines, ProcessedDataRepo processedDataRepo) {
         Set<Integer> validManagerIds = managerList.stream()
                 .map(Manager::getId)
                 .collect(Collectors.toSet());
@@ -29,7 +30,7 @@ public class DepartmentBuildServiceImpl implements DepartmentBuildService {
 
         for (Manager manager : managerList) {
             List<Employee> employees = employeesByManagerId.getOrDefault(manager.getId(), List.of());
-            departmentList.add(new Department(manager, employees));
+            processedDataRepo.addDepartment(new Department(manager, employees));
         }
     }
 

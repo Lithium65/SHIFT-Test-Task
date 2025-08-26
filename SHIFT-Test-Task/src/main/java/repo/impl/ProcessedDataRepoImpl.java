@@ -12,4 +12,15 @@ import java.util.List;
 public class ProcessedDataRepoImpl implements ProcessedDataRepo {
     private List<Department> departmentsList = new ArrayList<>();
     private List<DepartmentStatsDto> collectedStats = new ArrayList<>();
+
+    @Override
+    public void addDepartment (Department department) {
+        departmentsList.add(department);
+    }
+
+    @Override
+    public void addDepartmentStats (DepartmentStatsDto departmentStatsDto) {
+        collectedStats.add(departmentStatsDto);
+    }
+
 }

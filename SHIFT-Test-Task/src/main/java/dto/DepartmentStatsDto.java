@@ -5,7 +5,7 @@ import java.util.Locale;
 public record DepartmentStatsDto (String department, Double minSalary,
                                   Double maxSalary, Double midSalary) {
 
-    public DepartmentStatsDto(String department, Double minSalary, Double maxSalary, Double midSalary) {
+    public DepartmentStatsDto (String department, Double minSalary, Double maxSalary, Double midSalary) {
         this.department = department;
         this.minSalary = (double) Math.round(minSalary * 100.0) / 100;
         this.maxSalary = (double) Math.round(maxSalary * 100) / 100;

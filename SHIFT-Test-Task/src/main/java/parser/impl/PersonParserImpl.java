@@ -12,7 +12,7 @@ import java.util.Set;
 
 public final class PersonParserImpl implements PersonParser {
 
-    public void parsePersons(List<String> lines, RawDataRepo rawDataRepo) {
+    public void parsePersons (List<String> lines, RawDataRepo rawDataRepo) {
         Set<Integer> employeeIds = new HashSet<>();
         Set<String> departmentsNames = new HashSet<>();
         for (String line : lines) {
@@ -35,7 +35,7 @@ public final class PersonParserImpl implements PersonParser {
         }
     }
 
-    private static Optional<Manager> parseManager(String line) {
+    private static Optional<Manager> parseManager (String line) {
         String[] parts = line.split(",");
         if (parts.length != 5) return Optional.empty();
         try {
@@ -51,7 +51,7 @@ public final class PersonParserImpl implements PersonParser {
         }
     }
 
-    private static Optional<Employee> parseEmployee(String line) {
+    private static Optional<Employee> parseEmployee (String line) {
         String[] parts = line.split(",");
         if (parts.length != 5) return Optional.empty();
         try {

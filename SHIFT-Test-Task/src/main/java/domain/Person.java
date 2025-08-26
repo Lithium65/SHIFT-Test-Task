@@ -10,7 +10,7 @@ abstract class Person {
     private String name;
     private Double salary;
 
-    protected Person (int id, String name, Double salary) {
+    public Person (int id, String name, Double salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;

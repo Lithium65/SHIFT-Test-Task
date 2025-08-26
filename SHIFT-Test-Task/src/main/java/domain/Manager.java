@@ -14,7 +14,7 @@ public final class Manager extends Person{
     }
 
     @Override
-    public String toString () {
-        return super.toString() + ", " + department;
+    public String toString() {
+        return super.toString();
     }
 }

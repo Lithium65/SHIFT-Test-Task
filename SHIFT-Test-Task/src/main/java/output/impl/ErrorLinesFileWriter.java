@@ -16,14 +16,11 @@ public class ErrorLinesFileWriter implements DataWriter<List<String>> {
     public ErrorLinesFileWriter() throws IOException {
         Path baseDir = Paths.get("").toAbsolutePath();
         this.outputDir = baseDir.resolve("departments");
-        if (!Files.exists(outputDir)) {
-            Files.createDirectories(outputDir);
-        }
     }
 
     @Override
-    public void write(List<String> errorLinesList) {
-        Path filePath = outputDir.resolve("ErrorLines.sb");
+    public void write (List<String> errorLinesList) {
+        Path filePath = outputDir.resolve("error.log");
 
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(filePath)) {
             for (String line : errorLinesList) {
