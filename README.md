@@ -23,7 +23,7 @@
 
 ## Зависимости
 
-* `Lombok 1.18.30` - генерация шаблонного кода посредством аннотаций, [ссылка](https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.30)
+* `Lombok 1.18.30` - библиотека для генерации шаблонного кода посредством аннотаций, [ссылка](https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.30)
   
 ```xml
         <dependency>
@@ -34,7 +34,7 @@
         </dependency>
 ```
 
-* `Google Guice 7.0.0` - предоставляет среду внедрения зависимостей, [ссылка](https://mvnrepository.com/artifact/com.google.inject/guice/7.0.0)
+* `Google Guice 7.0.0` - фреймворк, предоставляющий среду для внедрения зависимостей, [ссылка](https://mvnrepository.com/artifact/com.google.inject/guice/7.0.0)
 
 ```xml
         <dependency>
