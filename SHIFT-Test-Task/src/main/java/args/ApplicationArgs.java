@@ -37,6 +37,8 @@ public final class ApplicationArgs {
         }
         if ("file".equalsIgnoreCase(statsOutputMethod.toString()) && outputPath == null) {
             throw new CommandLine.ParameterException(spec.commandLine(), "--path is not specified when --output=file is present");
+        } else if (outputPath != null && statsOutputMethod.equals(StatsOutputMethod.console)) {
+            throw new CommandLine.ParameterException(spec.commandLine(), "--path is specified when --output=file is not present or --output=console");
         }
     }
 }

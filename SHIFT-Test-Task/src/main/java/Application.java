@@ -1,5 +1,7 @@
 import args.ApplicationArgs;
-import factory.ApplicationFactory;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import module.ApplicationModule;
 import picocli.CommandLine;
 import runner.ApplicationRunner;
 
@@ -11,7 +13,8 @@ public class Application {
         try {
             commandline.parseArgs(args);
             applicationArgs.validateArgs();
-            ApplicationRunner runner = ApplicationFactory.createAppRunner();
+            Injector injector = Guice.createInjector(new ApplicationModule());
+            ApplicationRunner runner = injector.getInstance(ApplicationRunner.class);
             runner.run(applicationArgs);
         } catch (Exception e) {
             System.err.println(e.getMessage());

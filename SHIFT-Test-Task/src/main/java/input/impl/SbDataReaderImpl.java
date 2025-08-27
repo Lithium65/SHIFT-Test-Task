@@ -16,7 +16,7 @@ public final class SbDataReaderImpl implements DataReader {
 
     private final Path directory;
 
-    public SbDataReaderImpl() throws IOException {
+    public SbDataReaderImpl() {
         directory = Paths.get("").toAbsolutePath();
     }
 
