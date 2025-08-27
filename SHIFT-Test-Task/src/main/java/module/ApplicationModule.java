@@ -21,11 +21,11 @@ import repo.impl.RawDataRepoImpl;
 import service.DepartmentBuildService;
 import service.SortService;
 import service.StatisticsService;
-import service.ValidationService;
+import service.PersonValidationService;
 import service.impl.DepartmentBuildServiceImpl;
 import service.impl.SortServiceImpl;
 import service.impl.StatisticsServiceImpl;
-import service.impl.ValidationServiceImpl;
+import service.impl.PersonValidationServiceImpl;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class ApplicationModule extends AbstractModule {
         bind(DepartmentBuildService.class).to(DepartmentBuildServiceImpl.class);
         bind(SortService.class).to(SortServiceImpl.class);
         bind(StatisticsService.class).to(StatisticsServiceImpl.class);
-        bind(ValidationService.class).to(ValidationServiceImpl.class);
+        bind(PersonValidationService.class).to(PersonValidationServiceImpl.class);
         bind(DataReader.class).to(SbDataReaderImpl.class);
         bind(PersonParser.class).to(PersonParserImpl.class);
         bind(RawDataRepo.class).to(RawDataRepoImpl.class);

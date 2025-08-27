@@ -12,9 +12,4 @@ public final class Employee extends Person {
         super (id, name, salary);
         this.managerId = managerId;
     }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", " + managerId;
-    }
 }

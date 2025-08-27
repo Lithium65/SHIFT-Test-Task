@@ -28,12 +28,13 @@ public class DepartmentFileWriter implements DataWriter<Department> {
         Path filePath = outputDir.resolve(filename);
 
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(filePath)) {
-            bufferedWriter.write(department.getManager().toString());
+            bufferedWriter.write("Manager," + department.getManager().getId() + "," + department.getManager().getName() + "," +  department.getManager().getSalary());
             bufferedWriter.newLine();
 
             if (department.getEmployeeList() != null && !department.getEmployeeList().isEmpty()) {
                 for (Employee employee : department.getEmployeeList()) {
-                    bufferedWriter.write(employee.toString());
+                    bufferedWriter.write("Employee," + employee.getId() + "," + employee.getName() + "," +  employee.getSalary() + "," + employee.getManagerId());
+
                     bufferedWriter.newLine();
                 }
             }

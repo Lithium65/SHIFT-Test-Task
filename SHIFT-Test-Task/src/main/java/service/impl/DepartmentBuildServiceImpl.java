@@ -24,7 +24,7 @@ public class DepartmentBuildServiceImpl implements DepartmentBuildService {
                         .computeIfAbsent(employee.getManagerId(), id -> new ArrayList<>())
                         .add(employee);
             } else {
-                errorLines.add(employee.toString());
+                errorLines.add("Employee," + employee.getId() + "," + employee.getName() + "," + employee.getSalary() + "," + employee.getManagerId());
             }
         }
 
