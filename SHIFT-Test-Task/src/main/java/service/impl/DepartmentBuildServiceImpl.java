@@ -1,0 +1,37 @@
+package service.impl;
+
+import domain.Department;
+import repo.ProcessedDataRepo;
+import service.DepartmentBuildService;
+import domain.Employee;
+import domain.Manager;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class DepartmentBuildServiceImpl implements DepartmentBuildService {
+
+    @Override
+    public void formDepartments (List<Manager> managerList, List<Employee> employeeList, List<String> errorLines, ProcessedDataRepo processedDataRepo) {
+        Set<Integer> validManagerIds = managerList.stream()
+                .map(Manager::getId)
+                .collect(Collectors.toSet());
+
+        Map<Integer, List<Employee>> employeesByManagerId = new HashMap<>();
+        for (Employee employee : employeeList) {
+            if (validManagerIds.contains(employee.getManagerId())) {
+                employeesByManagerId
+                        .computeIfAbsent(employee.getManagerId(), id -> new ArrayList<>())
+                        .add(employee);
+            } else {
+                errorLines.add("Employee," + employee.getId() + "," + employee.getName() + "," + employee.getSalary() + "," + employee.getManagerId());
+            }
+        }
+
+        for (Manager manager : managerList) {
+            List<Employee> employees = employeesByManagerId.getOrDefault(manager.getId(), List.of());
+            processedDataRepo.addDepartment(new Department(manager, employees));
+        }
+    }
+
+}
