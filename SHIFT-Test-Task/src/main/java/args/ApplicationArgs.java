@@ -18,7 +18,7 @@ public final class ApplicationArgs {
     @CommandLine.Option(names = "--order", description = "Sort order, desc/asc")
     private SortOrder sortOrder;
 
-    @CommandLine.Option(names = "--stat", description = "Enables generation of departmental statistics", defaultValue = "false")
+    @CommandLine.Option(names = "--stat", description = "Enables generation of departmental statistics", defaultValue = "false", arity = "0")
     private Boolean isStatsNeeded;
 
     @CommandLine.Option(names = {"-o", "--output"}, description = "Method for statistics export", defaultValue = "console")
