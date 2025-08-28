@@ -40,13 +40,9 @@ public class ApplicationModule extends AbstractModule {
         bind(PersonParser.class).to(PersonParserImpl.class);
         bind(RawDataRepo.class).to(RawDataRepoImpl.class);
         bind(ProcessedDataRepo.class).to(ProcessedDataRepoImpl.class);
-        bind(new TypeLiteral<DataWriter<Department>>() {})
-                .to(DepartmentFileWriter.class);
-        bind(new TypeLiteral<DataWriter<List<String>>>() {})
-                .to(ErrorLinesFileWriter.class);
-        bind(new TypeLiteral<DataWriter<DepartmentStatsDto>>() {})
-                .to(StatisticsConsoleWriter.class);
-        bind(new TypeLiteral<CustomPathDataWriter<List<DepartmentStatsDto>>>() {})
-                .to(StatisticsFileWriter.class);
+        bind(new TypeLiteral<DataWriter<Department>>() {}).to(DepartmentFileWriter.class);
+        bind(new TypeLiteral<DataWriter<List<String>>>() {}).to(ErrorLinesFileWriter.class);
+        bind(new TypeLiteral<DataWriter<DepartmentStatsDto>>() {}).to(StatisticsConsoleWriter.class);
+        bind(new TypeLiteral<CustomPathDataWriter<List<DepartmentStatsDto>>>() {}).to(StatisticsFileWriter.class);
     }
 }
