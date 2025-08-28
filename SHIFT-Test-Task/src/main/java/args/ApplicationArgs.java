@@ -11,8 +11,7 @@ import java.nio.file.Path;
 @Getter
 public final class ApplicationArgs {
 
-    @CommandLine.Option(names = {"-s", "--sort"},
-            description = {"Employee sorting type: by name or by salary"})
+    @CommandLine.Option(names = {"-s", "--sort"}, description = {"Employee sorting type: by name or by salary"})
     private SortType sortType;
 
     @CommandLine.Option(names = "--order", description = "Sort order, desc/asc")
